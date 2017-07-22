@@ -1,0 +1,30 @@
+INFO:root::2017-07-18:Opening FTP: LACNIC
+INFO:root::2017-07-18:Login on LACNIC
+INFO:root::2017-07-18:Selecting folder
+INFO:root::2017-07-18:Preparing to download file
+INFO:root::2017-07-18:Download done !
+INFO:root::2017-07-18:Closing connection
+INFO:root::2017-07-18:Opening FTP: AFRINIC
+INFO:root::2017-07-18:Login on AFRINIC
+INFO:root::2017-07-18:Selecting folder
+INFO:root::2017-07-18:Preparing to download file
+INFO:root::2017-07-18:Download done !
+INFO:root::2017-07-18:Closing connection
+INFO:root::2017-07-18:Opening FTP: APNIC
+INFO:root::2017-07-18:Login on APINIC
+INFO:root::2017-07-18:Selecting folder
+INFO:root::2017-07-18:Preparing to download file
+INFO:root::2017-07-18:Download done !
+INFO:root::2017-07-18:Closing connection
+INFO:root::2017-07-18:Opening FTP: ARIN
+INFO:root::2017-07-18:Login on ARIN
+INFO:root::2017-07-18:Selecting folder
+INFO:root::2017-07-18:Preparing to download file
+INFO:root::2017-07-18:Download done !
+INFO:root::2017-07-18:Closing connection
+INFO:root::2017-07-18:Opening FTP: RIPENCC
+INFO:root::2017-07-18:Login on RIPENCC
+INFO:root::2017-07-18:Selecting folder
+INFO:root::2017-07-18:Preparing to download file
+INFO:root::2017-07-18:Download done !
+INFO:root::2017-07-18:Closing connection

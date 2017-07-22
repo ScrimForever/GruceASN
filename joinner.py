@@ -8,6 +8,7 @@ from colorama import init
 from colorama import Fore
 import logmodule
 import connection
+import ConfigParser
 
 init(autoreset=True)
 logmodule.start_log()
@@ -20,9 +21,16 @@ class Joinner(object):
     today = date.today().strftime("%Y%m%d")
 
     def open_config(self):
-        ftp_string = "FTP"
-        config_string = "CONTINENTS"
-        with open("config.ini") as conf:
+
+        configParser = ConfigParser.RawConfigParser()
+        configParser.read('config.ini')
+        ftp = configParser.get('CONFIG', 'ftp')
+        print ftp
+
+
+
+
+
 
 
 
@@ -42,6 +50,6 @@ if __name__ == "__main__":
     x = Joinner()
     print x.yesterday
     print x.today
-    print x.open_config()[0][0]
+    print x.open_config()
     print "finish"
 

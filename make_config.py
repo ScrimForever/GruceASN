@@ -10,9 +10,8 @@ parser.set("CONTINENTS", 'APINIC','0')
 parser.set("CONTINENTS", 'ARIN','0')
 parser.set("CONTINENTS", 'LACNIC','1')
 parser.set("CONTINENTS", 'RIPENCC','0')
-parser.add_section('')
-
 with open('config.ini', 'wb') as cf:
     parser.write(cf)
+
 
 
