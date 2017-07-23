@@ -3,12 +3,14 @@
 
 import ftplib
 
+
 class FTP(object):
 
-    def open_connection_all(self,ftp_name):
+    def open_connection_all(self, ftp_name):
+
         try:
             self.ftp = ftplib.FTP(ftp_name)
-            return (self.ftp)
+            return self.ftp
         except Exception as e:
             print (e)
 
