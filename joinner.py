@@ -1,21 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from datetime import date, timedelta
-import re
-import os
+import make_config
 from colorama import init
 from colorama import Fore
 import logmodule
 import connection
 import ConfigParser
-import sys
+import collections
 
 init(autoreset=True)
 logmodule.start_log()
 
 
 class Joinner(object):
+
+    def writeconfig(self):
+        w = make_config.RunConf()
+        w.write_conf()
 
     def open_config_ftp(self):
 
@@ -28,29 +30,24 @@ class Joinner(object):
 
         parser = ConfigParser.RawConfigParser()
         parser.read('config.ini')
-        x = dict(parser.items('CONTINENTS'))
-        return x
+        c = dict(parser.items('CONTINENTS'))
+        l = dict(parser.items('DIR_LOC'))
+        return (c,l)
 
     def joiner_all(self, conf_continents, con_ftp):
         try:
             open_con = connection.FTP()
             ftp_con = open_con.open_connection_all(con_ftp)
             ftp_con.login()
-            for i in range(0, len(conf_continents.items())):
-                try:
-                    print ("try")
-                    ftp_con.cwd(conf_continents.values()[i])
-                    print ftp_con.pwd()
-                    sys.stdout(ftp_con.dir("delegated-%s-extended-%s" % (conf_continents.keys()[i],)))
-                    f = open('%s_%s.txt' % (conf_continents.keys()[i],), 'w')
-                    ftp_con.retrbinary('RETR delegated-%s-extended-%s' % (conf_continents.keys()[i],), f.write)
+            conf_dir = sorted(conf_continents[0].items())
+            conf_name = sorted(conf_continents[1].items())
 
-                except Exception as e:
-                    print ("except")
-                    ftp_con.cwd(conf_continents.values()[i])
-                    print ftp_con.pwd()
-                    f = open('%s_%s.txt' % (conf_continents.keys()[i], yesterday), 'wb')
-                    ftp_con.retrbinary('RETR delegated-%s-extended-%s' % (conf_continents.keys()[i], yesterday), f.write)
+            for i in range(0, len(conf_continents[1].items())):
+                f = open("%s_%s.txt" % (conf_dir[i][0],conf_name[i][1]), 'wb')
+                print (conf_name[i][1])
+                ftp_con.cwd(conf_dir[i][1])
+                print ftp_con.pwd()
+                ftp_con.retrbinary('RETR %s' % conf_name[i][1], f.write)
 
         except Exception as e:
             print e
@@ -62,8 +59,8 @@ class Joinner(object):
 
 if __name__ == "__main__":
 
-
     x = Joinner()
+    x.writeconfig()
     x.joiner_all(x.open_config_continents(), x.open_config_ftp())
 
 

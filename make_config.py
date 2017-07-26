@@ -11,7 +11,7 @@ today = date.today().strftime("%Y%m%d")
 
 class RunConf(object):
 
-    def runConfig(self):
+    def write_conf(self):
         self.parser = ConfigParser.RawConfigParser()
 
         self.parser.add_section('CONFIG')
@@ -25,6 +25,9 @@ class RunConf(object):
         self.parser.add_section('DIR_LOC')
         self.parser.set("DIR_LOC", 'afrinic', 'delegated-afrinic-extended-%s' % today)
         self.parser.set("DIR_LOC", 'apnic', 'delegated-apnic-extended-%s' % today)
+        self.parser.set("DIR_LOC", 'arin', 'delegated-arin-extended-%s' % today)
+        self.parser.set("DIR_LOC", 'lacnic', 'delegated-lacnic-extended-%s' % yesterday)
+        self.parser.set("DIR_LOC", 'ripencc', 'delegated-ripencc-extended-%s' % yesterday)
         with open('config.ini', 'wb') as cf:
             self.parser.write(cf)
 
