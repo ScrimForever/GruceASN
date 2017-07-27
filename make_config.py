@@ -18,7 +18,7 @@ class RunConf(object):
         self.parser.set('CONFIG', 'FTP', 'ftp.lacnic.net')
         self.parser.add_section('CONTINENTS')
         self.parser.set("CONTINENTS", 'AFRINIC','/pub/stats/afrinic')
-        self.parser.set("CONTINENTS", 'APINIC', '/pub/stats/apnic')
+        self.parser.set("CONTINENTS", 'APNIC', '/pub/stats/apnic')
         self.parser.set("CONTINENTS", 'ARIN','/pub/stats/arin')
         self.parser.set("CONTINENTS", 'LACNIC','/pub/stats/lacnic')
         self.parser.set("CONTINENTS", 'RIPENCC','/pub/stats/ripencc')

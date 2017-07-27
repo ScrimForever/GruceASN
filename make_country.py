@@ -11,11 +11,6 @@ class CountryCode(object):
         self.itens = self.parser.items('DIR_LOC')
         return self.itens
 
-        """
-        afrinic = afrinic_treatment.AfrinicTreatment()
-        afrinic.
-        """
-
     def make_afrinic_file_config(self, name, date):
         f = open("%s_%s.txt" % (name, date[-8:]), 'r')
         countrycode = []
@@ -26,9 +21,7 @@ class CountryCode(object):
                     countrycode.append(k[1])
         except Exception as e:
             print e
-
-
-
+        print countrycode
 
 if __name__ == "__main__":
 
@@ -38,4 +31,3 @@ if __name__ == "__main__":
         print i[0]
         print i[1]
         makefile = countryname.make_afrinic_file_config(i[0],i[1])
-        break
