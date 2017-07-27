@@ -44,9 +44,7 @@ class Joinner(object):
 
             for i in range(0, len(conf_continents[1].items())):
                 f = open("%s_%s.txt" % (conf_dir[i][0],conf_name[i][1]), 'wb')
-                print (conf_name[i][1])
                 ftp_con.cwd(conf_dir[i][1])
-                print ftp_con.pwd()
                 ftp_con.retrbinary('RETR %s' % conf_name[i][1], f.write)
 
         except Exception as e:
