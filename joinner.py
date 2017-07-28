@@ -32,7 +32,7 @@ class Joinner(object):
         parser.read('config.ini')
         c = dict(parser.items('CONTINENTS'))
         l = dict(parser.items('DIR_LOC'))
-        return (c,l)
+        return c,l
 
     def joiner_all(self, conf_continents, con_ftp):
         try:
@@ -51,11 +51,6 @@ class Joinner(object):
 
         except Exception as e:
             print e
-
-
-    #def joiner_nic_all_contry(self,country):
-
-    #def joiner_nic_country(self,continent,country):
 
 if __name__ == "__main__":
 

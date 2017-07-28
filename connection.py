@@ -13,4 +13,3 @@ class FTP(object):
             return self.ftp
         except Exception as e:
             print (e)
-

@@ -30,10 +30,7 @@ class CountryCode(object):
         with open('country.ini', 'wb') as f:
             self.parser.write(f)
 
-if __name__ == "__main__":
-
-    country = CountryCode()
-    country.make_country_name()
+        return ("Arquivo de configuração dos paises criado.")
 
 
 
