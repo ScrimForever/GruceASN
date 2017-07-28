@@ -3,11 +3,11 @@
 
 import make_config
 from colorama import init
-from colorama import Fore
 import logmodule
 import connection
 import ConfigParser
-import collections
+import make_country
+import os
 
 init(autoreset=True)
 logmodule.start_log()
@@ -32,9 +32,17 @@ class Joinner(object):
         parser.read('config.ini')
         c = dict(parser.items('CONTINENTS'))
         l = dict(parser.items('DIR_LOC'))
-        return c,l
+        return c, l
 
     def joiner_all(self, conf_continents, con_ftp):
+
+        pwd = os.getcwd()
+        list_file = os.listdir(pwd)
+
+        for item in list_file:
+            if item.endswith('.txt'):
+                os.remove(item)
+
         try:
             open_con = connection.FTP()
             ftp_con = open_con.open_connection_all(con_ftp)
@@ -57,6 +65,7 @@ if __name__ == "__main__":
     x = Joinner()
     x.writeconfig()
     x.joiner_all(x.open_config_continents(), x.open_config_ftp())
-
+    y = make_country.CountryCode()
+    y.make_country_name()
 
 
