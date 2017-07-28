@@ -3,15 +3,11 @@
 
 import make_config
 from colorama import init
-from colorama import Fore
-import logmodule
 import connection
 import ConfigParser
-import collections
+import make_country
 
 init(autoreset=True)
-logmodule.start_log()
-
 
 class Joinner(object):
 
@@ -43,7 +39,7 @@ class Joinner(object):
             conf_name = sorted(conf_continents[1].items())
 
             for i in range(0, len(conf_continents[1].items())):
-                f = open("%s_%s.txt" % (conf_dir[i][0],conf_name[i][1]), 'wb')
+                f = open("%s_%s.txt" % (conf_dir[i][0],conf_name[i][1][-8:]), 'wb')
                 ftp_con.cwd(conf_dir[i][1])
                 ftp_con.retrbinary('RETR %s' % conf_name[i][1], f.write)
 
@@ -57,9 +53,8 @@ class Joinner(object):
 
 if __name__ == "__main__":
 
+    y = make_country.CountryCode()
+    y.make_country_name()
     x = Joinner()
     x.writeconfig()
     x.joiner_all(x.open_config_continents(), x.open_config_ftp())
-
-
-
