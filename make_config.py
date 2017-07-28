@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from datetime import date,timedelta
+from datetime import date, timedelta
 import ConfigParser
 
 
@@ -30,7 +30,3 @@ class RunConf(object):
         self.parser.set("DIR_LOC", 'ripencc', 'delegated-ripencc-extended-%s' % yesterday)
         with open('config.ini', 'wb') as cf:
             self.parser.write(cf)
-
-
-
-
