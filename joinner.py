@@ -58,3 +58,5 @@ if __name__ == "__main__":
     x = Joinner()
     x.writeconfig()
     x.joiner_all(x.open_config_continents(), x.open_config_ftp())
+
+    #commit
