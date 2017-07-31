@@ -2,14 +2,22 @@
 # -*- coding: utf-8 -*-
 
 import make_config
-from colorama import init
 import connection
 import ConfigParser
 import make_country
+import os
+import time
 
-init(autoreset=True)
 
 class Joinner(object):
+
+    def cleanfiles(self):
+        dir = os.getcwd()
+        dirlist = os.listdir(dir)
+        for i in dirlist:
+            if i.endswith('.txt'):
+                os.remove(i)
+                print "Removendo:  %s" % i
 
     def writeconfig(self):
         w = make_config.RunConf()
@@ -56,7 +64,8 @@ if __name__ == "__main__":
     y = make_country.CountryCode()
     y.make_country_name()
     x = Joinner()
+    x.cleanfiles()
+    time.sleep(5)
     x.writeconfig()
     x.joiner_all(x.open_config_continents(), x.open_config_ftp())
 
-    #commit
